@@ -3,7 +3,7 @@ import Animal  from "@sequelize/models/animals.model";
 
 export const getAnimals = async () => {
     try{
-        const animals =await Animal.findAll();
+        const animals =await Animal.findAll({ order: [['animal_id', 'DESC']] }) as AnimalAtributes[];
         return animals;
 
     }
