@@ -1,0 +1,68 @@
+<main-card-selector
+  [dimensions]="{
+    width: '25rem',
+    height: 'auto'
+  }"
+>
+  <section class="header">
+    <h2>Resultados</h2>
+  </section>
+
+  <section class="list-container" >
+    @for (item of list; track item) {
+      <section class="list-container">
+        <article 
+          class="list-item"
+        >
+          <p>
+            <span class="bold">
+              Nombre del animal: 
+            </span>
+            {{ item.name }}<br>
+          </p>
+
+          <p>
+            <span class="bold">
+              edad: 
+            </span>
+            {{ item.age}}<br>
+          </p>
+
+          <p>
+            <span class="bold">
+              Peso (kg): 
+            </span>
+            {{ item.weight}}<br>
+          </p>
+
+          @if(item.image_url==null) {
+            <p>
+              <span class="bold">
+                Foto : 
+              </span>
+              No disponible<br>
+            </p>
+          } @else {
+            <img
+              class="animal-image"
+              src="{{ item.image_url }}"
+              alt="Foto de {{ item.name }}"
+            >
+          }
+
+
+        </article>
+      </section>
+    }@empty {
+      <section class="list-container">
+        <article 
+          class="list-item"
+        >
+          <p class="bold">
+            No items found.
+          </p>
+        </article>
+      </section>
+    }
+  </section>
+</main-card-selector>

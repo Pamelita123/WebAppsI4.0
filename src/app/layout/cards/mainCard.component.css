@@ -1,0 +1,16 @@
+.main-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  border-radius: 1rem; 
+  border-color: #f6f6f6;
+  background-color: #ffffff;
+  padding: 3.5rem;
+  position: relative;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); 
+  transition: all 0.3s ease; 
+  max-width: 100%;
+  margin: 3em auto; 
+}

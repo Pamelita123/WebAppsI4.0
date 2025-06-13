@@ -1,0 +1,36 @@
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+  background: #fff;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+.tabla th, .tabla td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #eaeaea;
+  text-align: left;
+}
+
+.tabla th {
+  background: #f8f9fa;
+  color: #555;
+  font-weight: 600;
+}
+
+.tabla tr:last-child td {
+  border-bottom: none;
+}
+
+.tabla tr:hover {
+  background: #f1f3f4;
+  transition: background 0.2s;
+}

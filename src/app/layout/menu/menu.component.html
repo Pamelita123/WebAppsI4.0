@@ -1,0 +1,25 @@
+<div class="dropdown-container">
+  <button class="dropdown-button" (click)="toggleMenu()">
+
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+      <circle cx="12" cy="12" r="1.5"></circle>
+      <circle cx="12" cy="5" r="1.5"></circle>
+      <circle cx="12" cy="19" r="1.5"></circle>
+    </svg>
+  </button>
+
+  <div class="dropdown-content" [class.show]="isMenuOpen">
+
+    <a (click)="navigateTo('/views/tabla'); closeMenu()">
+      Proyecto Tabla
+    </a>
+    
+
+    <a (click)="navigateTo('/views/home'); closeMenu()">
+      Formulario
+    </a>
+  </div>
+</div>
+
+
+<div class="dropdown-overlay" *ngIf="isMenuOpen" (click)="closeMenu()"></div>

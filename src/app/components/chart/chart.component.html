@@ -1,0 +1,30 @@
+<main-card-selector
+  [dimensions]="{
+    width: '40rem',
+    height: 'auto'
+  }"
+>
+  <section class="header">
+    <h2>Productos</h2>
+  </section>
+  <section class="table-responsive">
+    <table class="tabla">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nombre</th>
+          <th>Categoría</th>
+          <th>Precio</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let producto of productos; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ producto.name }}</td>
+          <td>{{ producto.category }}</td>
+          <td>${{ producto.price }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</main-card-selector>

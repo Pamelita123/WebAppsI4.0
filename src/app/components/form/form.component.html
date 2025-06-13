@@ -1,0 +1,58 @@
+<main-card-selector
+  [dimensions]="{
+    width: '25rem',
+    height: 'auto'
+  }"
+>
+  <section class="header">
+    <h2>Campos</h2>
+  </section>
+  <section class="main-input-container">
+    <label for="name">Nombre: </label>
+    <article class="second-input-container">
+      <app-input
+        inputId="name"
+        [(inputValue)]="formData.name"
+      ></app-input>
+    </article>
+  </section>
+
+  <section class="main-input-container">
+    <label for="age">edad: </label>
+    <article class="second-input-container">
+      <app-input
+        inputId="age"
+        [(inputValue)]="formData.age"
+      ></app-input>
+    </article>
+  </section>
+
+    <section class="main-input-container">
+    <label for="weight">peso: </label>
+    <article class="second-input-container">
+      <app-input
+        inputId="weight"
+        [(inputValue)]="formData.weight"
+      ></app-input>
+    </article>
+  </section>
+
+    <section class="main-input-container">
+    <label for="image_url">imagen: </label>
+    <article class="second-input-container">
+      <app-input
+        inputId="image_url"
+        [(inputValue)]="formData.image_url"
+      ></app-input>
+    </article>
+  </section>
+
+
+  <section class="button-container">
+    <button-selector
+      [label]="'Añadir'"
+      (action)="onSubmit()"
+    ></button-selector>
+  </section>
+</main-card-selector>
+

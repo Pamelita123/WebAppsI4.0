@@ -7,6 +7,7 @@ import {
 import express from 'express';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import animalRouter from '@expressRoutes/animals/animals.route'
 
 const serverDistFolder = dirname(fileURLToPath(import.meta.url));
 const browserDistFolder = resolve(serverDistFolder, '../browser');
@@ -14,13 +15,10 @@ const browserDistFolder = resolve(serverDistFolder, '../browser');
 const app = express();
 const angularApp = new AngularNodeAppEngine();
 
-app.get("/api/hello", (req, res) => {
-  res.json({ message: "te amo mucho amor" });
-}
-);
-/**
- * Serve static files from /browser
- */
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use('/api', animalRouter);
+
 app.use(
   express.static(browserDistFolder, {
     maxAge: '1y',

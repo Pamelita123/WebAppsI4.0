@@ -1,7 +1,7 @@
 import { Sequelize, Model, DataTypes } from "sequelize";
 import { getSequelizeInstance } from "../database"; 
 
- class Animal extends Model{
+class Animal extends Model{
     public animal_id!: number;
     public name!: string;
     public age!: number;
