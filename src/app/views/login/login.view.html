@@ -1,0 +1,36 @@
+
+<main-card-selector [dimensions]="{ width: '25rem', height: 'auto' }">
+  <section class="header">
+    <h2>Iniciar sesión</h2>
+  </section>
+  <form (ngSubmit)="loginHandler()" #loginForm="ngForm" autocomplete="off">
+    <section class="main-input-container">
+      <label for="email">Correo electrónico:</label>
+      <article class="second-input-container">
+        <app-input
+          inputId="email"
+          [(inputValue)]="formData.email"
+          [type]="'text'"
+          required
+        ></app-input>
+      </article>
+    </section>
+    <section class="main-input-container">
+      <label for="password">Contraseña:</label>
+      <article class="second-input-container">
+        <app-input
+          inputId="password"
+          [(inputValue)]="formData.password"
+          [type]="'password'"
+          required
+        ></app-input>
+      </article>
+    </section>
+    <section class="button-container">
+      <button-selector
+        [label]="'Entrar'"
+        [type]="'submit'"
+      ></button-selector>
+    </section>
+  </form>
+</main-card-selector>

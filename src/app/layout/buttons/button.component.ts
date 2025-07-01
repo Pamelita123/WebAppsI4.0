@@ -8,6 +8,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class ButtonComponent {
   @Input() label: string = 'Button';
+  @Input() type: string = 'button'; // <-- AGREGA ESTA LÍNEA
   @Output() action = new EventEmitter<void>();
 
   onClick() {

@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 export class InputComponent {
   @Input() inputId: string = '';
   @Input() inputValue: string | undefined | null | number = ''; 
+  @Input() type: string = 'text'; // <-- AGREGA ESTA LÍNEA
   @Output() inputValueChange = new EventEmitter<string | number>();
 
   onValueChange(newValue: string): void {
