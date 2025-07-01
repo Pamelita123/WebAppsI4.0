@@ -8,6 +8,7 @@ import express from 'express';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import animalRouter from '@expressRoutes/animals/animals.route'
+import userRouter from '@app/api/routes/users/users.route';
 
 const serverDistFolder = dirname(fileURLToPath(import.meta.url));
 const browserDistFolder = resolve(serverDistFolder, '../browser');
@@ -17,8 +18,12 @@ const angularApp = new AngularNodeAppEngine();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/api', animalRouter);
 
+// Primero las rutas de API
+app.use('/api', animalRouter);
+app.use('/api', userRouter);
+
+// Luego archivos estáticos y Angular
 app.use(
   express.static(browserDistFolder, {
     maxAge: '1y',
@@ -27,9 +32,7 @@ app.use(
   }),
 );
 
-/**
- * Handle all other requests by rendering the Angular application.
- */
+// Finalmente, el handler de Angular para el resto de rutas
 app.use('/**', (req, res, next) => {
   angularApp
     .handle(req)
