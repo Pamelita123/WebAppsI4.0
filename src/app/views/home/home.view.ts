@@ -14,16 +14,13 @@ import { getTokenFromLocalStorage } from '@expressControllers/auth/auth.controll
 export class HomeView implements OnInit {
 
   animals = signal<AnimalAtributes[]>([]);
-  isAuthenticated = false;
 
   async ngOnInit(): Promise<void> {
-    const token = getTokenFromLocalStorage();
-    this.isAuthenticated = !!token;
-
-    if (this.isAuthenticated) {
+    try {
       this.animals.set(await getAnimals());
-    } else {
-      this.animals.set([]); // Vacía la lista si no hay token
+    } catch (error) {
+      console.error("Error fetching animals:", error);
+      // Handle the error appropriately, e.g., show a notification or alert
     }
   }
 
